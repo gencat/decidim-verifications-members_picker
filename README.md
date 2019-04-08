@@ -5,7 +5,8 @@ The Admin is able to hand-pick which emails are allowed to participate from the 
 ## Usage
 
 Decidim::Verifications::MembersPicker will be available as a Component for Verifications.
-Space.
+
+More info about verifications can be found in [decidim-verifications/README](https://github.com/decidim/decidim/blob/master/decidim-verifications/README.md).
 
 ## Installation
 
