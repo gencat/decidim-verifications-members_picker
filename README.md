@@ -8,6 +8,8 @@ Decidim::Verifications::MembersPicker will be available as a Component for Verif
 
 More info about verifications can be found in [decidim-verifications/README](https://github.com/decidim/decidim/blob/master/decidim-verifications/README.md).
 
+There is a task to authorize participants prior to enabling the verifier.
+
 ## Installation
 
 Add this line to your application's Gemfile:

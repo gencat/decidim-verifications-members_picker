@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/dev/common_rake"
+load "lib/tasks/decidim_verifications_members_picker.rake"
 
 desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app"
