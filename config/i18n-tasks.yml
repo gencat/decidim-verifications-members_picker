@@ -3,7 +3,7 @@
 
 # The "main" locale.
 base_locale: en
-locales: [en, ca, es, oc]
+locales: [en, ca, es]
 # ignore_missing:
 
 ignore_unused:

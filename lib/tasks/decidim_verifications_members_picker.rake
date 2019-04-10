@@ -11,13 +11,10 @@ namespace :decidim_verifications do
           Decidim::User.find_each do |user|
             authorized = user.grant_authorization
 
-            if authorized
-              status = "Authorized"
-              mark = "✔"
-            else
-              status = "Unauthorized"
-              mark = "✘"
-            end
+            status, mark = if authorized then ["Authorized", "✔"]
+                           else ["Unauthorized", "✘"]
+                           end
+
             msg = "#{mark} [#{handler_name}] #{status} User! [#{user.id}]"
             puts msg
             log.info msg

@@ -33,7 +33,7 @@ Decidim::User.class_eval do
   end
 
   def granted_members_picker_authorization
-    @granted_members_picker_authorization ||= Decidim::Authorization.find_by(decidim_user_id: id, name: handler_name)
+    Decidim::Authorization.find_by(decidim_user_id: id, name: handler_name)
   end
 
   def revoke_members_picker_authorization!

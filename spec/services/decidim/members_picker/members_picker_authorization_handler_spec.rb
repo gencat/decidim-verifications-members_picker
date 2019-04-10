@@ -39,8 +39,6 @@ module Decidim
       end
 
       context "when email is allowed" do
-        # let(:email) { "123456X" }
-
         it { is_expected.to eq(true) }
       end
     end

@@ -43,10 +43,6 @@ module Decidim
 
             [status_code, data]
           end
-
-          def redirect_params
-            # { "members_picker" => self.user.email }
-          end
         end
       end
     end
