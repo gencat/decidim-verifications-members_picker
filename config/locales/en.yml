@@ -1,0 +1,16 @@
+---
+en:
+  decidim:
+    authorization_handlers:
+      members_picker_authorization_handler:
+        explanation: Pick which emails are allowed to participate from the component
+          permissions screen
+        fields:
+          members_picker: Allowed members' email
+          members_picker_help: "(separated by commas)"
+        name: Pick the emails of the users that will be able to participate in the
+          current component
+    verifications:
+      members_picker_authorization:
+        extra_explanation: Participation is restricted to participants with the permitted
+          email.

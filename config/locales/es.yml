@@ -1,0 +1,14 @@
+---
+es:
+  decidim:
+    authorization_handlers:
+      members_picker_authorization_handler:
+        explanation: Elige qué correos electrónicos pueden participar en el componente
+        fields:
+          members_picker: Correo electrónico de miembros permitidos.
+          members_picker_help: "(separado por comas)"
+        name: Elige qué correos electrónicos pueden participar en el componente
+    verifications:
+      members_picker_authorization:
+        extra_explanation: La participación está restringida a sólo unos participantes
+          con permiso
