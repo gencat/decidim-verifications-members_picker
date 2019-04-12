@@ -8,7 +8,12 @@ Decidim::Verifications::MembersPicker will be available as a Component for Verif
 
 More info about verifications can be found in [decidim-verifications/README](https://github.com/decidim/decidim/blob/master/decidim-verifications/README.md).
 
-There is a task to authorize participants prior to enabling the verifier.
+There is a task to authorize participants prior to enabling the verifier,
+Run the task from the rails console:
+
+```rb
+RAILS_ENV=production bundle exec rake decidim_verifications:members_picker:grant_authorization
+```
 
 ## Installation
 
