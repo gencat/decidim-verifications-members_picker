@@ -8,12 +8,12 @@ gemspec
 
 group :development, :test do
   gem "bootsnap", require: true
-  gem "byebug", "~> 10.0", platform: :mri
+  gem "byebug"
   gem "social-share-button"
 end
 
 group :development do
-  gem "faker", "~> 1.9"
+  gem "faker"
   gem "letter_opener_web", "~> 1.3"
   gem "listen", "~> 3.1"
   gem "spring", "~> 2.0"
