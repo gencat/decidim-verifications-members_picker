@@ -5,7 +5,7 @@ module Decidim
   module Verifications
     module MembersPicker
       def self.version
-        "0.0.3"
+        "0.0.4"
       end
     end
   end
