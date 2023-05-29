@@ -3,6 +3,7 @@
 Decidim::User.class_eval do
   def after_confirmation
     return unless available_members_picker_authorization?
+
     Decidim::Authorization.create_or_update_from(handler)
   end
 
