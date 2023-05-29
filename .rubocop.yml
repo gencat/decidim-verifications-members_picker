@@ -3,6 +3,7 @@ require: rubocop-rspec
 
 # Common configuration.
 AllCops:
+  NewCops: disable
   Include:
     - .simplecov
     - "**/*.rb"
@@ -65,12 +66,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.5
-
-  RSpec:
-    Patterns:
-      - "(?:^|/)spec/"
-      - "(?:^|/)test/"
+  TargetRubyVersion: 3.1.3
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -89,7 +85,7 @@ Style/Alias:
     - prefer_alias_method
 
 # Align the elements of a hash literal if they span more than one line.
-Layout/AlignHash:
+Layout/HashAlignment:
   # Alignment of entries using hash rocket as separator. Valid values are:
   #
   # key - left alignment of keys
@@ -152,7 +148,7 @@ Layout/AlignHash:
     - ignore_implicit
     - ignore_explicit
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   # Alignment of parameters in multi-line method calls.
   #
   # The `with_first_parameter` style aligns the following lines along the same
@@ -262,20 +258,6 @@ Style/BlockDelimiters:
     - lambda
     - proc
     - it
-
-Style/BracesAroundHashParameters:
-  EnforcedStyle: no_braces
-  SupportedStyles:
-    # The `braces` style enforces braces around all method parameters that are
-    # hashes.
-    - braces
-    # The `no_braces` style checks that the last parameter doesn't have braces
-    # around it.
-    - no_braces
-    # The `context_dependent` style checks that the last parameter doesn't have
-    # braces around it, but requires braces if the second to last parameter is
-    # also a hash literal.
-    - context_dependent
 
 # Indentation of `when`.
 Layout/CaseIndentation:
@@ -469,24 +451,6 @@ Naming/FileName:
   # files with a shebang in the first line).
   IgnoreExecutableScripts: true
 
-Layout/FirstParameterIndentation:
-  EnforcedStyle: special_for_inner_method_call_in_parentheses
-  SupportedStyles:
-    # The first parameter should always be indented one step more than the
-    # preceding line.
-    - consistent
-    # The first parameter should normally be indented one step more than the
-    # preceding line, but if it's a parameter for a method call that is itself
-    # a parameter in a method call, then the inner parameter should be indented
-    # relative to the inner method.
-    - special_for_inner_method_call
-    # Same as special_for_inner_method_call except that the special rule only
-    # applies if the outer method call encloses its arguments in parentheses.
-    - special_for_inner_method_call_in_parentheses
-  # By default, the indentation width from Style/IndentationWidth is used
-  # But it can be overridden by setting this parameter
-  IndentationWidth: ~
-
 # Checks use of for or each in multiline loops.
 Style/For:
   EnforcedStyle: each
@@ -506,16 +470,7 @@ Style/FormatStringToken:
   EnforcedStyle: template
 
 Style/FrozenStringLiteralComment:
-  EnforcedStyle: when_needed
-  SupportedStyles:
-    # `when_needed` will add the frozen string literal comment to files
-    # only when the `TargetRubyVersion` is set to 2.3+.
-    - when_needed
-    # `always` will always add the frozen string literal comment to a file
-    # regardless of the Ruby version or if `freeze` or `<<` are called on a
-    # string literal. If you run code against multiple versions of Ruby, it is
-    # possible that this will create errors in Ruby 2.3.0+.
-    - always
+  EnforcedStyle: always
 
 # Built-in global variables are allowed by default.
 Style/GlobalVars:
@@ -559,7 +514,7 @@ Layout/IndentationWidth:
   Width: 2
 
 # Checks the indentation of the first element in an array literal.
-Layout/IndentArray:
+Layout/FirstArrayElementIndentation:
   # The value `special_inside_parentheses` means that array literals with
   # brackets that have their opening bracket on the same line as a surrounding
   # opening round parenthesis, shall have their first element indented relative
@@ -581,13 +536,13 @@ Layout/IndentArray:
   IndentationWidth: ~
 
 # Checks the indentation of assignment RHS, when on a different line from LHS
-Layout/IndentAssignment:
+Layout/AssignmentIndentation:
   # By default, the indentation width from Style/IndentationWidth is used
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
 
 # Checks the indentation of the first key in a hash literal.
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   # The value `special_inside_parentheses` means that hash literals with braces
   # that have their opening brace on the same line as a surrounding opening
   # round parenthesis, shall have their first key indented relative to the
@@ -794,12 +749,12 @@ Naming/PredicateName:
     - has_
     - have_
   # Predicate name prefixes that should be removed.
-  NamePrefixBlacklist:
+  ForbiddenPrefixes:
     - is_
     - have_
   # Predicate names which, despite having a blacklisted prefix, or no ?,
   # should still be accepted
-  NameWhitelist:
+  AllowedMethods:
     - is_a?
   # Exclude Rspec specs because there is a strong convetion to write spec
   # helpers in the form of `have_something` or `be_something`.
@@ -980,7 +935,7 @@ Style/TernaryParentheses:
     - require_no_parentheses
   AllowSafeAssignment: true
 
-Layout/TrailingBlankLines:
+Layout/TrailingEmptyLines:
   EnforcedStyle: final_newline
   SupportedStyles:
     - final_newline
@@ -1030,7 +985,7 @@ Style/TrivialAccessors:
   # Commonly used in DSLs
   AllowDSLWriters: false
   IgnoreClassMethods: false
-  Whitelist:
+  AllowedMethods:
     - to_ary
     - to_a
     - to_c
@@ -1104,7 +1059,7 @@ Metrics/CyclomaticComplexity:
   Exclude:
     - "**/*/permissions.rb"
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 180
   # To make it possible to copy or click on URIs in the code, we allow lines
   # containing a URI to be longer than Max.
@@ -1188,10 +1143,6 @@ Lint/UnusedMethodArgument:
   IgnoreEmptyMethods: true
 
 ##################### Performance ############################
-
-Performance/RedundantMerge:
-  # Max number of key-value pairs to consider an offense
-  MaxKeyValuePairs: 2
 
 Metrics/BlockLength:
   Enabled: false

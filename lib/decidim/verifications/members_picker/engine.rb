@@ -12,7 +12,7 @@ module Decidim
         isolate_namespace Decidim::Verifications::MembersPicker
 
         config.to_prepare do
-          Dir.glob(Decidim::Verifications::MembersPicker::Engine.root + "app/decorators/**/*_decorator*.rb").each do |c|
+          Dir.glob("#{Decidim::Verifications::MembersPicker::Engine.root}app/decorators/**/*_decorator*.rb").each do |c|
             require_dependency(c)
           end
         end

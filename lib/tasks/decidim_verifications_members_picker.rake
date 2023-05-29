@@ -12,7 +12,8 @@ namespace :decidim_verifications do
             authorized = user.grant_authorization
 
             status, mark = if authorized then ["Authorized", "✔"]
-                           else ["Unauthorized", "✘"]
+                           else
+                             ["Unauthorized", "✘"]
                            end
 
             msg = "#{mark} [#{handler_name}] #{status} User! [#{user.id}]"
