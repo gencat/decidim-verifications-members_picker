@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", DECIDIM_VERSION
   s.add_dependency "decidim-verifications", DECIDIM_VERSION
+  s.add_dependency "psych", "< 4"
 
   s.add_development_dependency "decidim", DECIDIM_VERSION
   s.add_development_dependency "decidim-dev", DECIDIM_VERSION

@@ -4,6 +4,7 @@ PATH
     decidim-verifications-members_picker (0.0.5)
       decidim-core (>= 0.27.2)
       decidim-verifications (>= 0.27.2)
+      psych (< 4)
 
 GEM
   remote: https://rubygems.org/
@@ -566,6 +567,7 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
+    psych (3.3.4)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)

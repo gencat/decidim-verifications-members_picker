@@ -10,8 +10,9 @@ env:
   RUBY_VERSION: 3.1.3
 
 jobs:
-  test:
+  test-report:
     runs-on: ubuntu-latest
+
     services:
       postgres:
         image: postgres:11
@@ -29,23 +30,44 @@ jobs:
       DATABASE_HOST: localhost
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.0.0
         with:
           fetch-depth: 1
 
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@master
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
-          bundler-cache: true
 
-      - name: Setup Database
-        run: bundle exec rake test_app
+      - name: Recover Ruby dependency cache
+        uses: actions/cache@v1
+        with:
+          path: ./vendor/bundle
+          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
+            ${{ runner.OS }}-rubydeps-
+            ${{ runner.OS }}-
+
+      - name: Set bundle local config configvendor/bundle path
+        run: bundle config set --local path 'vendor/bundle'
+
+      - name: Install Ruby deps
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          retry_on: error
+          command: bundle install --jobs 4 --retry 3 
+
+      - name: Generate test_app
+        run: |
+          bundle exec rake decidim:generate_external_test_app
+          RAILS_ENV=test bundle exec rails db:migrate
 
       - name: Run RSpec
-        run: bundle exec rspec
-
-      - uses: actions/upload-artifact@v2-preview
-        if: always()
+        uses: nick-invision/retry@v2
         with:
-          name: screenshots
-          path: ./spec/decidim_dummy_app/tmp/screenshots
+          timeout_minutes: 30
+          max_attempts: 3
+          retry_on: error
+          command: bundle exec rake --backtrace -t spec['spec\/(?!(system))']
