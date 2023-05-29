@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    decidim-verifications-members_picker (0.0.4)
-      decidim-core (~> 0.27.2)
-      decidim-verifications (~> 0.27.2)
+    decidim-verifications-members_picker (0.0.5)
+      decidim-core (>= 0.27.2)
+      decidim-verifications (>= 0.27.2)
 
 GEM
   remote: https://rubygems.org/
@@ -791,8 +791,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   byebug
-  decidim (~> 0.27.2)
-  decidim-dev (~> 0.27.2)
+  decidim (>= 0.27.2)
+  decidim-dev (>= 0.27.2)
   decidim-verifications-members_picker!
   faker
   letter_opener_web (~> 1.3)
