@@ -6,6 +6,7 @@ Following Semantic Versioning 2.
 ## Version 0.0.6 (MINOR)
 - Increase minimum Decidim version to 0.27.6
 - Downgrade Ruby version to 3.0.7
+- Adapt to Zeitwerk
 
 ## Version 0.0.5 (MINOR)
 - Increase minimum Decidim version to 0.27.2
