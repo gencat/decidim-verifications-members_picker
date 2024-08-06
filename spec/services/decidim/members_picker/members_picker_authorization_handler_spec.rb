@@ -7,7 +7,7 @@ module Decidim
   describe Verifications::MembersPicker::MembersPickerAuthorizationHandler do
     let(:handler) { described_class.new(params.merge(extra_params)) }
     let(:user) { create(:user, :confirmed) }
-    let(:params) { { user: } }
+    let(:params) { { user: user } }
     let(:email) { user.email }
     let(:extra_params) { {} }
 

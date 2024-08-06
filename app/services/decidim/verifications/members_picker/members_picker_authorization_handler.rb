@@ -15,7 +15,7 @@ module Decidim
         end
 
         def metadata
-          super.merge(members_picker:)
+          super.merge(members_picker: members_picker)
         end
 
         private

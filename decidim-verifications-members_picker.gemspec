@@ -4,7 +4,7 @@ $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 require "decidim/verifications/members_picker/version"
 
-DECIDIM_VERSION = ">= 0.27.2"
+DECIDIM_VERSION = ">= 0.27.5"
 
 Gem::Specification.new do |s|
   s.version = Decidim::Verifications::MembersPicker.version
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = ["agusti.br@coditramuntana.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/gencat/decidim-verifications-members_picker"
-  s.required_ruby_version = ">= 3.1"
+  s.required_ruby_version = ">= 3.0"
 
   s.name = "decidim-verifications-members_picker"
   s.summary = "A decidim-verifications module to restrict which emails can participate in components."
