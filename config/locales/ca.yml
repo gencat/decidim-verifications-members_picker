@@ -12,7 +12,7 @@ ca:
       authorizations:
         first_login:
           actions:
-            members_picker_authorization_handler:  Elecció de membres
+            members_picker_authorization_handler: Elecció de membres
       members_picker_authorization:
         extra_explanation: La participació està restringida a només uns participants
           amb permís.

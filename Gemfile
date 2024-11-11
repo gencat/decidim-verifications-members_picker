@@ -7,6 +7,7 @@ ruby RUBY_VERSION
 gemspec
 
 group :development, :test do
+  gem "uri", "0.13.1"
   gem "bootsnap", require: true
   gem "byebug"
   gem "social-share-button"
