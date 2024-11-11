@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-verifications-members_picker (0.0.6)
+    decidim-verifications-members_picker (0.0.6.1)
       decidim-core (>= 0.27.5)
       decidim-verifications (>= 0.27.5)
       psych (< 4)
