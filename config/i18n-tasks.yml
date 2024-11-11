@@ -8,4 +8,5 @@ locales: [en, ca, es]
 
 ignore_unused:
   - "decidim.authorization_handlers.members_picker_authorization_handler.*"
+  - "decidim.verifications.authorizations.first_login.*"
   - "decidim.verifications.members_picker_authorization.extra_explanation"
