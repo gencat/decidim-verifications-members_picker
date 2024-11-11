@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+      - release/*
+      - "*-stable"
+
   pull_request:
 
 env:
