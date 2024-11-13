@@ -3,6 +3,9 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.0.6.1 (PATCH)
+- Fix missing translation on first login
+
 ## Version 0.0.6 (MINOR)
 - Increase minimum Decidim version to 0.27.6
 - Downgrade Ruby version to 3.0.7

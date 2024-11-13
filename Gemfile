@@ -10,6 +10,7 @@ group :development, :test do
   gem "bootsnap", require: true
   gem "byebug"
   gem "social-share-button"
+  gem "uri", "0.13.1"
 end
 
 group :development do
