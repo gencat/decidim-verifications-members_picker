@@ -11,6 +11,10 @@ en:
         name: Pick the emails of the users that will be able to participate in the
           current component
     verifications:
+      authorizations:
+        first_login:
+          actions:
+            members_picker_authorization_handler: Members picker
       members_picker_authorization:
         extra_explanation: Participation is restricted to participants with the permitted
           email.
