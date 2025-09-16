@@ -29,17 +29,17 @@ module Decidim
       context "when no email" do
         let(:email) { nil }
 
-        it { is_expected.to eq(false) }
+        it { is_expected.to be(false) }
       end
 
       context "when email is not allowed" do
         let(:email) { "invalid@example.org" }
 
-        it { is_expected.to eq(false) }
+        it { is_expected.to be(false) }
       end
 
       context "when email is allowed" do
-        it { is_expected.to eq(true) }
+        it { is_expected.to be(true) }
       end
     end
   end

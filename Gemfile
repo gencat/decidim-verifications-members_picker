@@ -6,14 +6,17 @@ ruby RUBY_VERSION
 
 gemspec
 
+DECIDIM_VERSION = { github: "CodiTramuntana/decidim", branch: "release/0.29-stable", require: true }.freeze
+
 group :development, :test do
   gem "bootsnap", require: true
   gem "byebug"
-  gem "social-share-button"
+  gem "decidim", DECIDIM_VERSION
+  gem "decidim-dev", DECIDIM_VERSION
   # Set versions because Property AutoCorrect errors.
   gem "rspec-rails", "~> 6.0.4"
-  gem "rubocop-factory_bot", "2.25.1"
-  gem "rubocop-rspec", "2.26.1"
+  gem "rubocop-factory_bot", "~> 2.26"
+  gem "rubocop-rspec", "~> 3.0"
 end
 
 group :development do

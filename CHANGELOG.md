@@ -3,6 +3,10 @@ Following Semantic Versioning 2.
 
 ## next version:
 
+## Version 0.2.0 (MINOR)
+- Increase minimum Decidim version to 0.29.
+- Upgrade Ruby version to 3.2.x
+
 ## Version 0.1.1 (PATCH)
 - Breaking semanting versioning to have one minor for each decidim minor
 - Fix missing translation on first login
