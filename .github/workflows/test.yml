@@ -10,7 +10,7 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.1.1
+  RUBY_VERSION: 3.2.9
 
 jobs:
   test-report:
@@ -31,9 +31,10 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
+      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/decidim_dummy_app_test?prepared_statements=false"
 
     steps:
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
@@ -42,7 +43,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
 
       - name: Recover Ruby dependency cache
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ./vendor/bundle
           key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
@@ -55,7 +56,7 @@ jobs:
         run: bundle config set --local path 'vendor/bundle'
 
       - name: Install Ruby deps
-        uses: nick-invision/retry@v2
+        uses: nick-invision/retry@v3
         with:
           timeout_minutes: 10
           max_attempts: 3
@@ -64,11 +65,12 @@ jobs:
 
       - name: Generate test_app
         run: |
-          bundle exec rake decidim:generate_external_test_app
+          bundle exec rake test_app
+          cd spec/decidim_dummy_app/
           RAILS_ENV=test bundle exec rails db:migrate
 
       - name: Run RSpec
-        uses: nick-invision/retry@v2
+        uses: nick-invision/retry@v3
         with:
           timeout_minutes: 30
           max_attempts: 3
