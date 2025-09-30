@@ -31,6 +31,7 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
+      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/decidim_dummy_app_test?prepared_statements=false"
 
     steps:
       - uses: actions/checkout@v4
