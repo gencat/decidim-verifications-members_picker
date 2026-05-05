@@ -4,7 +4,7 @@ $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 require "decidim/verifications/members_picker/version"
 
-DECIDIM_VERSION = "~> 0.29.0"
+DECIDIM_VERSION = "~> 0.30.0"
 
 Gem::Specification.new do |s|
   s.version = Decidim::Verifications::MembersPicker.version
