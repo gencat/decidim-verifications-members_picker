@@ -6,7 +6,7 @@ ruby RUBY_VERSION
 
 gemspec
 
-DECIDIM_VERSION = { github: "CodiTramuntana/decidim", branch: "release/0.29-stable", require: true }.freeze
+DECIDIM_VERSION = { github: "CodiTramuntana/decidim", branch: "release/0.30-stable", require: true }.freeze
 
 group :development, :test do
   gem "bootsnap", require: true

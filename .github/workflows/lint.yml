@@ -10,7 +10,7 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 3.2.9
+  RUBY_VERSION: 3.3.4
 
 jobs:
   lint-report:
