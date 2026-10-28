@@ -11,6 +11,7 @@ on:
 
 env:
   RUBY_VERSION: 3.3.4
+  DISABLE_SPRING: "1"
 
 jobs:
   test-report:
