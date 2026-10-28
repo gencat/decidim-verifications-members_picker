@@ -66,7 +66,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 3.3
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -742,8 +742,7 @@ Style/PercentQLiterals:
     - lower_case_q # Use %q when possible, %Q when necessary
     - upper_case_q # Always use %Q
 
-Naming/PredicateName:
-  # Predicate name prefixes.
+Naming/PredicatePrefix:
   NamePrefix:
     - is_
     - has_
