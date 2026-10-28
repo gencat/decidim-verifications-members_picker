@@ -13,6 +13,7 @@ group :development, :test do
   gem "byebug"
   gem "decidim", DECIDIM_VERSION
   gem "decidim-dev", DECIDIM_VERSION
+  gem "decidim-initiatives", DECIDIM_VERSION
 end
 
 group :development do
