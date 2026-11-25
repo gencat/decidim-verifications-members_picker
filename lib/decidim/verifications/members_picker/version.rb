@@ -5,11 +5,11 @@ module Decidim
   module Verifications
     module MembersPicker
       def self.version
-        "0.4.0"
+        "0.4.1"
       end
 
       def self.decidim_version
-        "0.31.8"
+        "~> 0.31.9"
       end
     end
   end
